@@ -40,38 +40,37 @@ class Solution:
         words = lyric.split(" ")
         first_letters = []
         alit_letters = []
-        letter_count =[]
+        letter_count = []
         word_endings = []
         filtered_endings = []
         rhyme_amount = []
         rhyme_count = 0
         for i in range(len(words)):
-            if words[i][0] in first_letter:
-                if words[i][0] in alit_letters:
-                    let_count[alit_letters.index(words[i][0])] +=1
+            if(words[i][0] in first_letters):
+                if(words[i][0] in alit_letters):
+                    letter_count[alit_letters.index(words[i][0])] += 1
                 else:
                     alit_letters.append(words[i][0])
                     letter_count.append(2)
             else:
-                first_letter.append(words[i][0])
+                first_letters.append(words[i][0])
+
         for j in range(len(words)):
-            if words[j][-3:] in word_end:
-                if words[j][-3:] in filtered_end:
-                    rhyme_amount[filtered_end.index(words[j][-3:])]+=1
+            if(words[j][-3:] in word_endings):
+                if(words[j][-3:] in filtered_endings):
+                    rhyme_amount[filtered_endings.index(words[j][-3:])] += 1
                 else:
-                    filtered_end.append(words[j][-3:])
+                    filtered_endings.append(words[j][-3:])
                     rhyme_amount.append(2)
             else:
-                word_end.append(words[j][-3:])
+                word_endings.append(words[j][-3:])
         for k in range(len(rhyme_amount)):
             rhyme_count += rhyme_amount[k]
 
-        final_str = ""
-        for l in range(len(alit_letters)):
-            final_str = final_str + "{letter}={number}, ".format(letter = alit_letters[l],number =letter_count[l])
-        
-
-        return final_str + "{rhymes} rhyming words".format(rhymes = rhyme_count)
+        final_string = ""
+        for q in range(len(alit_letters)):
+            final_string=final_string + "{letter}={number}, ".format(letter = alit_letters[q],number=letter_count[q])
+        return final_string + "{rhymes} rhyming words".format(rhymes=rhyme_count)
 
 def main():
     string1 = input()
